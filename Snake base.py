@@ -55,7 +55,28 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
-        w = vector(randrange(-10,11,10),randrange(-10,11,10)) # Se creó un vector 'w' para definir un valor random entre -10, 0 y 10 tanto para x como para y
+                snake.pop(0)
+        if food.x <= -200 and food.y <= -200: #Esquina inferior izquierda
+            w = vector(randrange(0,11,10),randrange(0,11,10))
+            
+        elif food.x <= -200 and food.y >= -200: #borde izquierdo
+            w = vector(randrange(0,11,10),randrange(-10,11,10))
+            
+        elif food.x >= -200 and food.y <= -200: #borde inferior
+            w = vector(randrange(-10,11,10),randrange(0,11,10))
+            
+        elif food.x >= 190 and food.y >= 190:  #esquina superior derecha
+            w = vector(randrange(-10,1,10),randrange(-10,1,10))
+            
+        elif food.x >= 190 and food.y <= 190: #borde derecho
+            w = vector(randrange(-10,1,10),randrange(-10,11,10))
+            
+        elif food.x <= 190 and food.y >= 190: #borde superior
+            w = vector(randrange(-10,11,10),randrange(-10,1,10))
+        
+        else: #centro
+            w = vector(randrange(-10,11,10),randrange(-10,11,10))
+
         food.move(w) # El vector creado cambia el valor de la posición de la comida
     clear()
 
