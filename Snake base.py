@@ -1,11 +1,27 @@
 #Estas son las librerías que se utilizarán.
+
 from turtle import * #Esto significa que se importan todas las funciones de la librería turtle.
 from random import randrange #Esto significa que de la librería random solo se importa la función randrange.
 from freegames import square, vector #Esto significa que de la librería freegames solo se importan las funciones "square" y "vector".
 
+#Estas son las variables que se utilizarán para el programa
+
 food = vector(0, 0) #Aquí la variable food indica la posción en la que se encuentra inicialmente de manera vectorial.
 snake = [vector(10, 0)]  #Aquí la variable snake indica la posción inicial del cuadro que representa la serpiente, pero se encuentra dentro de una lista.
 aim = vector(0, -10) #Aquí la variable aim nos indica la diracción inicial de la serpiente al generar el juego.
+
+
+color = ['black','blue','green','pink','brown'] #Se creó esta lista para poder tener en una sola variable varias opciones.
+
+p = color[randrange(0,5)] #La variable "p" será utilizada para definir el color del cuerpo de la serpiente.
+#Lo que se hace es elegir de manera aleatoria uno de los colores de la lista en la variable "color".
+
+p2 = color[randrange(0,5)] #La variable "p2" será utilizada para definir el color de la comida.
+#Se elige de manera aleatoria un color de la lista de la variable colores.
+#
+#Este while se asegura de que los colores no se repitan y de ser así obliga a que la variable p2 tenga un color distinto.
+while p2 == p:
+    p2 = color[randrange(0,5)]
 
 # Recibe un valor (x,y) y cambia el vector aim el cual
 # indica la dirección a la que se dirige el snake
@@ -43,9 +59,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, p) #Construye el cuerpo de la serpiente
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, p2) #Construye el cuerpo de la comida
     update()
     ontimer(move, 100)
 
