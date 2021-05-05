@@ -1,3 +1,4 @@
+#Estas son las librerías que se utilizarán
 from turtle import *
 from random import randrange
 from freegames import square, vector
