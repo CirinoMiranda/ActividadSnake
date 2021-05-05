@@ -1,11 +1,11 @@
-#Estas son las librerías que se utilizarán
-from turtle import *
-from random import randrange
-from freegames import square, vector
+#Estas son las librerías que se utilizarán.
+from turtle import * #Esto significa que se importan todas las funciones de la librería turtle.
+from random import randrange #Esto significa que de la librería random solo se importa la función randrange.
+from freegames import square, vector #Esto significa que de la librería freegames solo se importan las funciones "square" y "vector".
 
-food = vector(0, 0)
-snake = [vector(10, 0)]
-aim = vector(0, -10)
+food = vector(0, 0) #Aquí la variable food indica la posción en la que se encuentra inicialmente de manera vectorial.
+snake = [vector(10, 0)]  #Aquí la variable snake indica la posción inicial del cuadro que representa la serpiente, pero se encuentra dentro de una lista.
+aim = vector(0, -10) #Aquí la variable aim nos indica la diracción inicial de la serpiente al generar el juego.
 
 # Recibe un valor (x,y) y cambia el vector aim el cual
 # indica la dirección a la que se dirige el snake
@@ -14,9 +14,12 @@ def change(x, y):
     aim.x = x
     aim.y = y
 
-def inside(head):
+def inside(head): #Esta función es llamada "inside" y toma como parámetro la variable "head".
     "Return True if head inside boundaries."
-    return -200 < head.x < 190 and -200 < head.y < 190
+    #Lo que se busca es evaluar si la posición de la cabeza de la serpiente se encuentra dentro de los límites establecidos de la pantalla de juego.
+    #De ser así regresa el valor booleano de True y no se así regresa False.
+    return -200 < head.x < 190 and -200 < head.y < 190 #Return con la evaluación.
+
 
 def move():
     "Move snake forward one segment."
