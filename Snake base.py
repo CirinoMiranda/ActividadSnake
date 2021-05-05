@@ -39,7 +39,8 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
-
+        w = vector(randrange(-10,11,10),randrange(-10,11,10)) # Se creó un vector 'w' para definir un valor random entre -10, 0 y 10 tanto para x como para y
+        food.move(w) # El vector creado cambia el valor de la posición de la comida
     clear()
 
     for body in snake:
