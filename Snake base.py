@@ -7,6 +7,8 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+# Recibe un valor (x,y) y cambia el vector aim el cual
+# indica la dirección a la que se dirige el snake
 def change(x, y):
     "Change snake direction."
     aim.x = x
