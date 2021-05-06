@@ -55,7 +55,7 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
-                snake.pop(0)
+                
         if food.x <= -200 and food.y <= -200: #Esquina inferior izquierda
             w = vector(randrange(0,11,10),randrange(0,11,10))
             
